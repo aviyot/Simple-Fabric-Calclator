@@ -1,0 +1,38 @@
+<mat-grid-list cols="4" rowHeight="24px" class="mat-elevation-z8">
+  <mat-grid-tile>opthion</mat-grid-tile>
+  <mat-grid-tile>left</mat-grid-tile>
+  <mat-grid-tile>middle</mat-grid-tile>
+  <mat-grid-tile>right</mat-grid-tile>
+
+
+  <mat-grid-tile>#1</mat-grid-tile>
+  <!--
+      fromComp
+      pice
+      shelemim
+      widthGalil
+      sherit
+      simitriBig
+      simitriLittle
+      allSimitri
+     -->
+  <mat-grid-tile>{{'---'}}</mat-grid-tile>
+  <mat-grid-tile>{{data.rohabimShlemim}} X {{data.rollWidth}}</mat-grid-tile>
+  <mat-grid-tile style="background-color: yellow">{{data.needPice }}</mat-grid-tile>
+
+  <mat-grid-tile>#2</mat-grid-tile>
+  <mat-grid-tile>{{ (data.needPice + data.rollWidth)/2 }}</mat-grid-tile>
+  <mat-grid-tile>{{data.rohabimShlemim - 1}} X {{data.rollWidth}}</mat-grid-tile>
+  <mat-grid-tile>{{ (data.needPice + data.rollWidth ) / 2 }}</mat-grid-tile>
+
+  <mat-grid-tile>#3</mat-grid-tile>
+  <mat-grid-tile>{{(data.needPice + data.seam)/2}}</mat-grid-tile>
+  <mat-grid-tile>{{data.rohabimShlemim}} X {{data.rollWidth}}</mat-grid-tile>
+  <mat-grid-tile>{{(data.needPice + data.seam)/2}}</mat-grid-tile>
+
+  <mat-grid-tile>#4</mat-grid-tile>
+  <mat-grid-tile>--</mat-grid-tile>
+  <mat-grid-tile> {{data.rohabimShlemim+1}} X
+    {{(data.needPice + data.rollWidth * data.rohabimShlemim)/ ( data.rohabimShlemim + 1 )}} </mat-grid-tile>
+  <mat-grid-tile>--</mat-grid-tile>
+</mat-grid-list>

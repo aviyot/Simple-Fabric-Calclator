@@ -1,20 +1,65 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div> Awings Calclator</div>
+<div class="main-app" class="mat-elevation-z8">
+  <form (ngSubmit)="calcWidth()" #f="ngForm">
+    <div class="sewing">
+      <mat-form-field appearance="outline">
+        <mat-label>Seam</mat-label>
+        <input matInput type="number" name="seam" [(ngModel)]="seam" />
+      </mat-form-field>
 
+      <mat-form-field appearance="outline">
+        <mat-label>Side Hem </mat-label>
+        <input matInput type="number" name="sideHem" [(ngModel)]="sideHem" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Length Hem</mat-label>
+        <input matInput type="number" name="lengthHem" [(ngModel)]="lengthHem" />
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>width galil</mat-label>
+        <input matInput name="rollWidth" type="number" [(ngModel)]="rollWidth" required />
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Length</mat-label>
+        <input matInput name="bodyLength" type="number" [(ngModel)]="bodyLength" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>width</mat-label>
+        <input matInput name="bodyWidth" type="number" [(ngModel)]="bodyWidth" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Pice</mat-label>
+        <input matInput name="piceWidth" type="number" [(ngModel)]="piceWidth" />
+      </mat-form-field>
+    </div>
+
+
+
+    <div>
+      <button [disabled]="f.invalid" mat-raised-button type="submit" color="primary">
+        Calclator
+      </button>
+    </div>
+
+  </form>
+
+</div>
+<div *ngIf="isDoCal" class="calacSec">
+  <div>
+    <div>Pice </div>
+    <app-width-view [data]="data"></app-width-view>
+  </div>
+  <div>
+    <div>Length </div>
+    <app-length-view [data]="data"> </app-length-view>
+  </div>
+</div>

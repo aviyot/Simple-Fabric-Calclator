@@ -1,0 +1,16 @@
+.main-app {
+  font-size: 16px;
+}
+
+mat-form-field {
+  width: 33%;
+}
+
+mat-grid-list {
+  width: 100%;
+}
+
+.calacSec {
+  display: flex;
+  flex-direction: column;
+}

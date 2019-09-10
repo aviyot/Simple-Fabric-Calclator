@@ -1,0 +1,21 @@
+<mat-grid-list cols="3" rowHeight="24px" class="mat-elevation-z8">
+
+  <mat-grid-tile> Length </mat-grid-tile>
+  <mat-grid-tile> Reapt</mat-grid-tile>
+  <mat-grid-tile> Total</mat-grid-tile>
+
+  <mat-grid-tile>{{data.bodyLength + data.lengthHem}} X {{data.rollWidth}} </mat-grid-tile>
+  <mat-grid-tile>{{data. rohabimShlemim}}</mat-grid-tile>
+  <mat-grid-tile> {{(data.bodyLength + data.lengthHem) * (data. rohabimShlemim)}}</mat-grid-tile>
+
+  <mat-grid-tile>{{data.bodyLength + data.lengthHem}} X {{data.needPice}}</mat-grid-tile>
+  <mat-grid-tile> 1 </mat-grid-tile>
+  <mat-grid-tile>{{data.bodyLength + data.lengthHem}}</mat-grid-tile>
+
+  <mat-grid-tile></mat-grid-tile>
+  <mat-grid-tile>{{data. rohabimShlemim + 1}}</mat-grid-tile>
+  <mat-grid-tile style="background-color: yellow">{{(data.bodyLength + data.lengthHem) * (data. rohabimShlemim + 1)}}
+  </mat-grid-tile>
+
+
+</mat-grid-list>
