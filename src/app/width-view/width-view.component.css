@@ -1,0 +1,8 @@
+mat-grid-tile:nth-child(4n+5) {
+  background-color: blueviolet;
+}
+
+mat-grid-tile:nth-child(-n + 4) {
+  background-color: blue;
+  color: white;
+}

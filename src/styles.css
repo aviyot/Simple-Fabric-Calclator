@@ -8,3 +8,18 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.center {
+  display: block;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+
+
+.center_elm {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: flex-start;
+}
