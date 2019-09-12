@@ -4,18 +4,17 @@
   <mat-grid-tile> Reapt</mat-grid-tile>
   <mat-grid-tile> Total</mat-grid-tile>
 
-  <mat-grid-tile>{{data.bodyLength + data.lengthHem}} X {{data.rollWidth}} </mat-grid-tile>
-  <mat-grid-tile>{{data. rohabimShlemim}}</mat-grid-tile>
-  <mat-grid-tile> {{(data.bodyLength + data.lengthHem) * (data. rohabimShlemim)}}</mat-grid-tile>
+  <mat-grid-tile>{{data.totalBodyLength}} X {{data.rollWidth}} </mat-grid-tile>
+  <mat-grid-tile>{{data.rohabimShlemim}}</mat-grid-tile>
+  <mat-grid-tile> {{(data.totalBodyLength * data.rohabimShlemim)}}</mat-grid-tile>
 
-  <mat-grid-tile>{{data.bodyLength + data.lengthHem}} X {{data.needPice}}</mat-grid-tile>
+  <mat-grid-tile>{{data.totalBodyLength}} X {{data.pice}}</mat-grid-tile>
   <mat-grid-tile> 1 </mat-grid-tile>
-  <mat-grid-tile>{{data.bodyLength + data.lengthHem}}</mat-grid-tile>
+  <mat-grid-tile>{{data.totalBodyLength}}</mat-grid-tile>
 
   <mat-grid-tile></mat-grid-tile>
-  <mat-grid-tile>{{data. rohabimShlemim + 1}}</mat-grid-tile>
-  <mat-grid-tile style="background-color: yellow">{{(data.bodyLength + data.lengthHem) * (data. rohabimShlemim + 1)}}
+  <mat-grid-tile>{{data.rohabimShlemim + 1}}</mat-grid-tile>
+  <mat-grid-tile style="background-color: yellow">{{ data.totalLength + data.totalBodyLength }}
   </mat-grid-tile>
-
 
 </mat-grid-list>

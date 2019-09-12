@@ -1,4 +1,9 @@
 import { Component, OnInit } from "@angular/core";
+import { PiceTypes } from './pices.model';
+
+interface typeSewing {
+     name:"with Hem"
+}
 
 @Component({
   selector: "app-root",
@@ -17,63 +22,74 @@ export class AppComponent implements OnInit {
   volanLength;
   sharvulLength;
 
-  resultLength;
-  totalLengthHem;
-  resultCalacPice;
-  needPice;
 
   seam;
   sideHem;
   lengthHem;
 
-  haveVolan;
-  haveSharvol;
-  fromComp;
 
-  rohabimShlemim;
-
+  
   isDoCal = false;
 
-  data;
+  picesData :PiceTypes;
 
   ngOnInit() {
     this.fristData();
   }
-  calcWidth() {
+
+  calcWidth(){
+
+    this.picesData = this.calcPices(this.bodyWidth,
+                                    this.bodyLength,
+                                    this.piceWidth,
+                                    this.rollWidth,
+                                    this.seam,
+                                    this.lengthHem,
+                                    this.sideHem);
+  }
+  
+
+  calcPices(bodyWidth:number,
+            bodyLength:number,
+            piceWidth : number , 
+            rollWidth:number,
+            seam:number ,
+            lengthHem:number, 
+            sideHem: number):PiceTypes{
+    
+
     this.isDoCal = true;
 
-    let pice = this.piceWidth;
 
-    if (pice > 0) {
-      pice -= this.seam;
+    if (piceWidth > 0) {
+      piceWidth -= this.seam;
     }
 
-    this.rohabimShlemim = Math.floor(
-      (this.bodyWidth - pice + this.sideHem * 2 - this.seam) /
-        (this.rollWidth - this.seam)
+    const rohabimShlemim = Math.floor(
+      (bodyWidth - piceWidth + sideHem * 2 - seam) /
+        (rollWidth - seam)
     );
 
-    this.needPice =
-      this.bodyWidth -
-      pice +
-      this.seam -
-      ((this.rollWidth - this.seam) * this.rohabimShlemim -
-        (this.sideHem * 2 - this.seam));
+    const needPice =
+      bodyWidth -
+      piceWidth +
+      seam -
+      ((rollWidth - seam) * rohabimShlemim -
+        (sideHem * 2 - seam));
 
-    this.inializeData();
-  }
 
-  inializeData() {
-    this.data = {
-      piceWidth: this.piceWidth,
-      needPice: this.needPice,
-      rollWidth: this.rollWidth,
-      rohabimShlemim: this.rohabimShlemim,
-      bodyWidth: this.bodyWidth,
-      lengthHem : this.lengthHem,
-      bodyLength: this.bodyLength,
-      seam: this.seam
-    };
+return {
+  rohabimShlemim : rohabimShlemim,
+  rollWidth :rollWidth,
+  pice: needPice,
+  litlePice:(needPice+seam)/2,
+  bigPice: (needPice+rollWidth)/2,
+  equlPice:(needPice+rollWidth)/(rohabimShlemim+1),
+  totalLength : rohabimShlemim* (bodyLength + lengthHem),
+  bodyLength : bodyLength,
+  totalBodyLength :bodyLength+lengthHem
+}
+
   }
 
   fristData() {

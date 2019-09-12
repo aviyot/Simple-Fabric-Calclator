@@ -2,6 +2,11 @@
 <div class="main-app mat-elevation-z8">
   <form (ngSubmit)="calcWidth()" #f="ngForm">
     <div class="sewing center_elm">
+        <mat-form-field appearance="outline">
+            <mat-label>width galil</mat-label>
+            <input matInput name="rollWidth" type="number" [(ngModel)]="rollWidth" required />
+          </mat-form-field>
+          
       <mat-form-field appearance="outline">
         <mat-label>Seam</mat-label>
         <input matInput type="number" name="seam" [(ngModel)]="seam" />
@@ -18,12 +23,7 @@
       </mat-form-field>
     </div>
 
-    <div class="center_elm">
-      <mat-form-field appearance="outline">
-        <mat-label>width galil</mat-label>
-        <input matInput name="rollWidth" type="number" [(ngModel)]="rollWidth" required />
-      </mat-form-field>
-    </div>
+   
 
     <div class="center_elm">
       <mat-form-field appearance="outline">
@@ -56,10 +56,10 @@
 <div *ngIf="isDoCal" class="calacSec">
   <div>
     <div>Pice </div>
-    <app-width-view [data]="data"></app-width-view>
+    <app-width-view [data]="picesData"></app-width-view>
   </div>
   <div>
     <div>Length </div>
-    <app-length-view [data]="data"> </app-length-view>
+    <app-length-view [data]="picesData"> </app-length-view>
   </div>
 </div>

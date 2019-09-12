@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
+import { PiceTypes } from '../pices.model';
 
 @Component({
   selector: "app-length-view",
@@ -6,12 +7,8 @@ import { Component, OnInit, Input } from "@angular/core";
   styleUrls: ["./length-view.component.css"]
 })
 export class LengthViewComponent implements OnInit {
-  rohabimShlemim;
-  bodyLength;
-  addtfira;
-  resultCalacPice;
-
-  @Input() data;
+ 
+  @Input() data : PiceTypes;
 
   constructor() {}
 

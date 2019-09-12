@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
+import { PiceTypes } from '../pices.model';
 
 @Component({
   selector: "app-width-view",
@@ -7,19 +8,12 @@ import { Component, OnInit, Input } from "@angular/core";
 })
 export class WidthViewComponent implements OnInit {
 
-  @Input() data;
+  @Input() data :PiceTypes ;
 
-  pice;
-  shelemim;
-  widthGalil;
-  sherit;
-  simitriBig;
-  simitriLittle;
-  allSimitri;
 
   constructor() {}
 
   ngOnInit() {
-    
+
   }
 }

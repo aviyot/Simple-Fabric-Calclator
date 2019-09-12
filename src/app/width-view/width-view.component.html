@@ -18,21 +18,20 @@
      -->
   <mat-grid-tile>{{'---'}}</mat-grid-tile>
   <mat-grid-tile>{{data.rohabimShlemim}} X {{data.rollWidth}}</mat-grid-tile>
-  <mat-grid-tile style="background-color: yellow">{{data.needPice }}</mat-grid-tile>
+  <mat-grid-tile style="background-color: yellow">{{data.pice}}</mat-grid-tile>
 
   <mat-grid-tile>#2</mat-grid-tile>
-  <mat-grid-tile>{{ (data.needPice + data.rollWidth)/2 }}</mat-grid-tile>
+  <mat-grid-tile>{{ data.litlePice}}</mat-grid-tile>
   <mat-grid-tile>{{data.rohabimShlemim - 1}} X {{data.rollWidth}}</mat-grid-tile>
-  <mat-grid-tile>{{ (data.needPice + data.rollWidth ) / 2 }}</mat-grid-tile>
+  <mat-grid-tile>{{ data.litlePice }}</mat-grid-tile>
 
   <mat-grid-tile>#3</mat-grid-tile>
-  <mat-grid-tile>{{(data.needPice + data.seam)/2}}</mat-grid-tile>
+  <mat-grid-tile>{{data.bigPice}}</mat-grid-tile>
   <mat-grid-tile>{{data.rohabimShlemim}} X {{data.rollWidth}}</mat-grid-tile>
-  <mat-grid-tile>{{(data.needPice + data.seam)/2}}</mat-grid-tile>
+  <mat-grid-tile>{{data.bigPice}}</mat-grid-tile>
 
   <mat-grid-tile>#4</mat-grid-tile>
   <mat-grid-tile>--</mat-grid-tile>
-  <mat-grid-tile> {{data.rohabimShlemim+1}} X
-    {{(data.needPice + data.rollWidth * data.rohabimShlemim)/ ( data.rohabimShlemim + 1 )}} </mat-grid-tile>
+  <mat-grid-tile> {{data.rohabimShlemim+1}} X {{data.equlPice}} </mat-grid-tile>
   <mat-grid-tile>--</mat-grid-tile>
 </mat-grid-list>

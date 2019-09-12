@@ -3,8 +3,7 @@
 }
 
 mat-form-field {
-  width: 33%;
-  max-width: 100px;
+  width: 120px;
   height: 80px;
 }
 
@@ -20,4 +19,10 @@ mat-grid-list {
 .calacSec {
   display: flex;
   flex-direction: column;
+}
+
+.sewing mat-form-field {
+  color: brown;
+  width: 80px;
+  margin: 1px;
 }
