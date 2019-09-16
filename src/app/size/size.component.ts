@@ -31,6 +31,7 @@ export class SizeComponent implements OnInit {
   }
 
   calcWidth() {
+
     this.picesData = this.calcPices(
       this.bodyWidth,
       this.bodyLength,
