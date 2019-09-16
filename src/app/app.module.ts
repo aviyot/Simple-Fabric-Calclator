@@ -7,12 +7,14 @@ import { MaterialModule } from './material/material.module';
 import { FormsModule } from '@angular/forms';
 import { WidthViewComponent } from './width-view/width-view.component';
 import { LengthViewComponent } from './length-view/length-view.component';
+import { SizeComponent } from './size/size.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WidthViewComponent,
-    LengthViewComponent
+    LengthViewComponent,
+    SizeComponent
   ],
   imports: [
     BrowserModule,

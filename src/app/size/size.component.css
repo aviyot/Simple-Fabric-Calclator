@@ -1,14 +1,6 @@
-.main-app {
-  font-size: 16px;
-}
-
 mat-form-field {
-  width: 100px;
+  width: 110px;
   height: 80px;
-}
-
-mat-grid-list {
-  width: 100%;
 }
 
 .center-div {
@@ -25,15 +17,4 @@ mat-grid-list {
   color: brown;
   width: 80px;
   margin: 1px;
-}
-
-.tab-delete {
-  background-color: red;
-  color: white;
-  font-size: x-small;
-  margin: 2px;
-}
-
-mat-tab {
-  width: 40px;
 }

@@ -1,0 +1,76 @@
+<form (ngSubmit)="calcWidth()" #f="ngForm">
+    <div class="sewing center_elm">
+      <mat-form-field appearance="outline">
+        <mat-label>width galil</mat-label>
+        <input matInput name="rollWidth" type="number" [(ngModel)]="rollWidth" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Seam</mat-label>
+        <input matInput type="number" name="seam" [(ngModel)]="seam" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Side Hem </mat-label>
+        <input matInput type="number" name="sideHem" [(ngModel)]="sideHem" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Length Hem</mat-label>
+        <input matInput type="number" name="lengthHem" [(ngModel)]="lengthHem" />
+      </mat-form-field>
+    </div>
+
+
+
+    <div class="center_elm">
+      <mat-form-field appearance="outline">
+        <mat-label>Length</mat-label>
+        <input matInput name="bodyLength" type="number" [(ngModel)]="bodyLength" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>width</mat-label>
+        <input matInput name="bodyWidth" type="number" [(ngModel)]="bodyWidth" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Pice</mat-label>
+        <input matInput name="piceWidth" type="number" [(ngModel)]="piceWidth" />
+      </mat-form-field>
+    </div>
+
+
+
+    <div>
+      <button [disabled]="f.invalid" mat-raised-button type="submit" color="primary">
+        Calclator
+      </button>
+    </div>
+
+  </form>
+
+  <div *ngIf="isDoCal" class="calacSec">
+  <mat-tab-group>
+    <mat-tab label="Pices">
+      <div>
+        <div>Pice </div>
+        <app-width-view [data]="picesData"></app-width-view>
+      </div>
+    </mat-tab>
+    <mat-tab label="Length">
+      <div>
+        <div>Length </div>
+        <app-length-view [data]="picesData"> </app-length-view>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+  <!-- <div>
+    <div>Pice </div>
+    <app-width-view [data]="picesData"></app-width-view>
+  </div>
+  <div>
+    <div>Length </div>
+    <app-length-view [data]="picesData"> </app-length-view>
+  </div> -->
+</div>

@@ -16,9 +16,9 @@
       simitriLittle
       allSimitri
      -->
-  <mat-grid-tile>{{'---'}}</mat-grid-tile>
-  <mat-grid-tile>{{data.rohabimShlemim}} X {{data.rollWidth}}</mat-grid-tile>
   <mat-grid-tile style="background-color: yellow">{{data.pice}}</mat-grid-tile>
+  <mat-grid-tile>{{data.rohabimShlemim}} X {{data.rollWidth}}</mat-grid-tile>
+  <mat-grid-tile>{{data.piceWidth}}</mat-grid-tile>
 
   <mat-grid-tile>#2</mat-grid-tile>
   <mat-grid-tile>{{ data.litlePice}}</mat-grid-tile>
@@ -32,6 +32,6 @@
 
   <mat-grid-tile>#4</mat-grid-tile>
   <mat-grid-tile>--</mat-grid-tile>
-  <mat-grid-tile> {{data.rohabimShlemim+1}} X {{data.equlPice}} </mat-grid-tile>
+  <mat-grid-tile> {{data.rohabimShlemim+1}} X {{data.equlPice | number:'0.0-0' }}</mat-grid-tile>
   <mat-grid-tile>--</mat-grid-tile>
 </mat-grid-list>
