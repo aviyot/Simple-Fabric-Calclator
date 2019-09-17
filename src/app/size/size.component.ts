@@ -1,5 +1,5 @@
-import { Component, OnInit } from "@angular/core";
-import { PiceTypes } from "../pices.model";
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import { PiceTypes, ResultCal } from "../pices.model";
 
 @Component({
   selector: "app-size",
@@ -26,12 +26,17 @@ export class SizeComponent implements OnInit {
 
   picesData: PiceTypes;
 
+  resultsCal: ResultCal;
+
+  @Output() onCalc = new EventEmitter<ResultCal>();
+
   ngOnInit() {
     this.fristData();
+    //this.resultsCal = null;
+    // this.calcWidth();
   }
 
   calcWidth() {
-
     this.picesData = this.calcPices(
       this.bodyWidth,
       this.bodyLength,
@@ -41,6 +46,17 @@ export class SizeComponent implements OnInit {
       this.lengthHem,
       this.sideHem
     );
+
+    if (!this.isDoCal) {
+      this.resultsCal = {
+        size: `${this.bodyWidth}X ${this.bodyLength}`,
+        length: this.picesData.totalLength + this.picesData.totalBodyLength,
+        pice: this.picesData.pice
+      };
+
+      this.onCalc.emit(this.resultsCal);
+    }
+    this.isDoCal = true;
   }
 
   calcPices(
@@ -52,7 +68,6 @@ export class SizeComponent implements OnInit {
     lengthHem: number,
     sideHem: number
   ): PiceTypes {
-    this.isDoCal = true;
     let pice = piceWidth;
 
     if (piceWidth > 0) {
@@ -63,17 +78,23 @@ export class SizeComponent implements OnInit {
       (bodyWidth - piceWidth + sideHem * 2 - seam) / (rollWidth - seam)
     );
 
-    const needPice =
+    let needPice =
       bodyWidth -
       piceWidth +
       seam -
       ((rollWidth - seam) * rohabimShlemim - (sideHem * 2 - seam));
 
+    let piceEqualSeam = needPice;
+
+    if (piceEqualSeam === this.seam) {
+      piceEqualSeam = 0;
+    }
+
     return {
       rohabimShlemim: rohabimShlemim,
       rollWidth: rollWidth,
       piceWidth: pice,
-      pice: needPice,
+      pice: piceEqualSeam,
       litlePice: (needPice + seam) / 2,
       bigPice: (needPice + rollWidth) / 2,
       equlPice: (needPice + bodyWidth) / (rohabimShlemim + 1),

@@ -8,13 +8,13 @@
   <mat-grid-tile>{{data.rohabimShlemim}}</mat-grid-tile>
   <mat-grid-tile> {{(data.totalBodyLength * data.rohabimShlemim)}}</mat-grid-tile>
 
-  <mat-grid-tile>{{data.totalBodyLength}} X {{data.pice}}</mat-grid-tile>
-  <mat-grid-tile> 1 </mat-grid-tile>
-  <mat-grid-tile>{{data.totalBodyLength}}</mat-grid-tile>
+  <mat-grid-tile *ngIf="data.pice">{{data.totalBodyLength}} X {{data.pice}}</mat-grid-tile>
+  <mat-grid-tile *ngIf="data.pice"> 1 </mat-grid-tile>
+  <mat-grid-tile *ngIf="data.pice">{{data.totalBodyLength}}</mat-grid-tile>
 
-  <mat-grid-tile></mat-grid-tile>
-  <mat-grid-tile>{{data.rohabimShlemim + 1}}</mat-grid-tile>
-  <mat-grid-tile style="background-color: yellow">{{ data.totalLength + data.totalBodyLength }}
+  <mat-grid-tile *ngIf="data.pice"></mat-grid-tile>
+  <mat-grid-tile *ngIf="data.pice">{{data.rohabimShlemim + 1}}</mat-grid-tile>
+  <mat-grid-tile *ngIf="data.pice" style="background-color: yellow">{{ data.totalLength + data.totalBodyLength }}
   </mat-grid-tile>
 
 </mat-grid-list>
