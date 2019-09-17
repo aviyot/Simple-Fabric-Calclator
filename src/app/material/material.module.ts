@@ -13,6 +13,7 @@ import { MatMenuModule } from "@angular/material/menu";
 import { MatTableModule } from "@angular/material/table";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatIconModule} from '@angular/material/icon';
 
 const MaterialComponents = [
   MatCardModule,
@@ -27,7 +28,8 @@ const MaterialComponents = [
   MatSlideToggleModule,
   MatGridListModule,
   MatDividerModule,
-  MatTabsModule
+  MatTabsModule,
+  MatIconModule
 ];
 
 @NgModule({

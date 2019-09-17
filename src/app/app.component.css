@@ -2,38 +2,10 @@
   font-size: 16px;
 }
 
-mat-form-field {
-  width: 100px;
-  height: 80px;
-}
-
-mat-grid-list {
-  width: 100%;
-}
-
-.center-div {
-  display: block;
-  margin: 0 auto;
-}
-
-.calacSec {
-  display: flex;
-  flex-direction: column;
-}
-
-.sewing mat-form-field {
-  color: brown;
-  width: 80px;
-  margin: 1px;
-}
-
-.tab-delete {
-  background-color: red;
-  color: white;
-  font-size: x-small;
-  margin: 2px;
-}
-
 mat-tab {
   width: 40px;
+}
+
+app-size {
+  width: 200px;
 }

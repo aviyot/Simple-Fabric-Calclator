@@ -1,23 +1,24 @@
-<div> Awings Calclator</div>
 <div class="main-app mat-elevation-z8">
-  <button matBotton color="accent" type="button" (click)="addTab()">Add Tab</button>
-  <div>
-    <mat-tab-group [selectedIndex]="selectedTab" color="accent" backgroundColor="primary"
-      (selectedIndexChange)="onSelected($event)">
-      <mat-tab *ngFor="let tab of tabs; let index = index">
-        <ng-template mat-tab-label>
-          <span><span>({{index+1}}):</span>{{size.bodyWidth}} X {{size.bodyLength}}</span>
-          <button *ngIf="tabs.length > 1" type="button" class="tab-delete" (click)="deleteTab(index)">X</button>
+  <div style="display: flex;justify-content: space-between">
+    <mat-card-title color="primary">Awings Calclator</mat-card-title>
 
-        </ng-template>
-        <app-size #size></app-size>
-      </mat-tab>
-      <!--  <mat-tab>
-      <ng-template mat-tab-label>
-        <button type="button" (click)="addTab()">+</button>
-      </ng-template>
-    </mat-tab> -->
-    </mat-tab-group>
+    <mat-card-actions>
+      <button matBotton color="accent" type="button" (click)="addTab()">
+        <mat-icon>add</mat-icon>
+      </button>
+      <button matBotton color="accent" type="button" (click)="deleteTab(selectedTab)">
+        <mat-icon>clear</mat-icon>
+      </button>
+    </mat-card-actions>
   </div>
+  <mat-tab-group [selectedIndex]="selectedTab" color="warn" backgroundColor="primary"
+    (selectedIndexChange)="onSelected($event)">
+    <mat-tab *ngFor="let tab of tabs; let index = index">
+      <ng-template mat-tab-label>
+        <span><span>({{index+1}}):</span>{{size.bodyWidth}} X {{size.bodyLength}}</span>
+      </ng-template>
+      <app-size #size></app-size>
+    </mat-tab>
+  </mat-tab-group>
 
 </div>
