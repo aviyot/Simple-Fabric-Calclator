@@ -8,69 +8,62 @@ import { ResultCal } from "./pices.model";
 })
 export class AppComponent implements OnInit {
   title = "Simple Fabric Calclator";
-  tabs = ["size1"];
-  id: number;
-  currentId: number;
-
-  resultsCal: ResultCal[];
+  resultsCal: ResultCal[] = [];
 
   totalLength: number;
   totalPice: number;
-
-  selectedTab;
+  selectedTab: number;
 
   ngOnInit() {
-    this.id = 0;
     this.selectedTab = 0;
-    this.resultsCal = [];
+
+    this.resultsCal.push({
+      size: "",
+      length: 0,
+      pice: 0,
+      isCal: false
+    });
+
+    console.log(this.resultsCal);
+
     this.totalLength = 0;
     this.totalPice = 0;
   }
 
   onCalcHendler(resultCal: ResultCal) {
-    let index = this.resultsCal.findIndex(item => {
-      return item.id === resultCal.id;
-    });
+    this.totalPice = this.totalPice - this.resultsCal[this.selectedTab].pice;
+    this.totalLength =
+      this.totalLength - this.resultsCal[this.selectedTab].length;
 
-    if (index === -1) {
-      this.currentId = this.id;
+    this.resultsCal[this.selectedTab].length = resultCal.length;
+    this.resultsCal[this.selectedTab].pice = resultCal.pice;
+    this.resultsCal[this.selectedTab].size = resultCal.size;
+    this.resultsCal[this.selectedTab].isCal = resultCal.isCal;
 
-      this.resultsCal.push(resultCal);
-      this.totalPice = this.totalPice + resultCal.pice;
-      this.totalLength = this.totalLength + resultCal.length;
-      this.id++;
-    } else {
-      this.currentId = this.id;
+    this.totalPice = this.totalPice + resultCal.pice;
+    this.totalLength = this.totalLength + resultCal.length;
+  }
 
-      this.totalPice = this.totalPice - this.resultsCal[index].pice;
-      this.totalLength = this.totalLength - this.resultsCal[index].length;
-
-      this.resultsCal[index].length = resultCal.length;
-      this.resultsCal[index].pice = resultCal.pice;
-      this.resultsCal[index].size = resultCal.size;
-
-      this.totalPice = this.totalPice + resultCal.pice;
-      this.totalLength = this.totalLength + resultCal.length;
+  deleteTab(id: number) {
+    if (this.resultsCal.length) {
+      this.totalPice = this.totalPice - this.resultsCal[this.selectedTab].pice;
+      this.totalLength =
+        this.totalLength - this.resultsCal[this.selectedTab].length;
+      this.resultsCal.splice(this.selectedTab, 1);
     }
   }
 
-  deleteTab(index: number, id: number) {
-    let indexId = this.resultsCal.findIndex(item => {
-      return item.id === id;
-    });
-
-    this.totalPice = this.totalPice - this.resultsCal[indexId].pice;
-    this.totalLength = this.totalLength - this.resultsCal[indexId].length;
-    this.resultsCal.splice(indexId, 1);
-
-    this.tabs.splice(index, 1);
-    this.selectedTab = index - 1;
+  onSelected(ev) {
+    this.selectedTab = ev;
   }
 
-  onSelected(ev) {}
-
   addTab() {
-    this.tabs.push(`Size ${this.tabs.length + 1}`);
-    this.selectedTab = this.tabs.length - 1;
+    this.resultsCal.push({
+      size: "",
+      length: 0,
+      pice: 0,
+      isCal: false
+    });
+    this.selectedTab = this.resultsCal.length - 1;
   }
 }

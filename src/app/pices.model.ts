@@ -13,8 +13,8 @@ export interface PiceTypes {
 }
 
 export interface ResultCal {
-  id: number;
   size: string;
   pice: number;
   length: number;
+  isCal: boolean;
 }

@@ -6,26 +6,26 @@
       <button matBotton color="accent" type="button" (click)="addTab()">
         <mat-icon>add</mat-icon>
       </button>
-      <button matBotton color="accent" type="button" (click)="deleteTab(selectedTab,currentId)">
+      <button [disabled]="resultsCal.length === 0" matBotton color="accent" type="button"
+        (click)="deleteTab(selectedTab)">
         <mat-icon>clear</mat-icon>
       </button>
     </mat-card-actions>
   </div>
   <mat-tab-group [selectedIndex]="selectedTab" color="warn" backgroundColor="primary"
     (selectedIndexChange)="onSelected($event)">
-    <mat-tab *ngFor="let tab of tabs; let index = index">
+    <mat-tab *ngFor="let resultCal of resultsCal; let index = index">
       <ng-template mat-tab-label>
         <span><span>({{index+1}}):</span>{{size.bodyWidth}} X {{size.bodyLength}}</span>
       </ng-template>
 
-      <app-size [id]="id" #size (onCalc)="onCalcHendler($event)"></app-size>
+      <app-size [id]="selectedTab" #size (onCalc)="onCalcHendler($event)"></app-size>
 
     </mat-tab>
   </mat-tab-group>
 
 
   <div *ngIf="resultsCal.length">
-
     <ul>
       <li>
         Total Pice : {{totalPice}}
@@ -36,11 +36,13 @@
     </ul>
 
     <ol>
-      <li *ngFor="let resultCal of resultsCal">
-        <span>{{resultCal.size}} </span>
-        <span>{{resultCal.pice}} </span>
-        <span>{{resultCal.length}}</span>
-      </li>
+      <div *ngFor="let resultCal of resultsCal">
+        <li *ngIf="resultCal.isCal">
+          <span>{{resultCal.size}} </span>
+          <span>{{resultCal.pice}} </span>
+          <span>{{resultCal.length}}</span>
+        </li>
+      </div>
     </ol>
   </div>
 

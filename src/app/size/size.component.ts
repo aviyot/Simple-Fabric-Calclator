@@ -27,20 +27,15 @@ export class SizeComponent implements OnInit {
   picesData: PiceTypes;
   resultCal: ResultCal;
 
+  @Input() selectedTab: number;
   @Output() onCalc = new EventEmitter<ResultCal>();
-  @Input() id: number;
   //@Input() resultsCal : ResultCal[];
 
   ngOnInit() {
     this.fristData();
-    this.calcWidth();
   }
 
   calcWidth() {
-    /*  let index = this.resultsCal.findIndex(item => {
-      return item.id === this.resultCal.id;
-    }); */
-
     this.picesData = this.calcPices(
       this.bodyWidth,
       this.bodyLength,
@@ -51,24 +46,12 @@ export class SizeComponent implements OnInit {
       this.sideHem
     );
 
-    if (!this.isDoCal) {
-      console.log("frist");
-
-      this.resultCal = {
-        id: this.id,
-        size: `${this.picesData.bodyWidth} X ${this.bodyLength}`,
-        length: this.picesData.totalLength + this.picesData.totalBodyLength,
-        pice: this.picesData.pice
-      };
-    } else {
-      console.log("change");
-      this.resultCal = {
-        id: this.resultCal.id,
-        size: `${this.picesData.bodyWidth} X ${this.picesData.bodyLength}`,
-        length: this.picesData.totalLength + this.picesData.totalBodyLength,
-        pice: this.picesData.pice
-      };
-    }
+    this.resultCal = {
+      size: `${this.picesData.bodyWidth} X ${this.picesData.bodyLength}`,
+      length: this.picesData.totalLength + this.picesData.totalBodyLength,
+      pice: this.picesData.pice,
+      isCal: true
+    };
 
     this.onCalc.emit(this.resultCal);
 
@@ -84,8 +67,6 @@ export class SizeComponent implements OnInit {
     lengthHem: number,
     sideHem: number
   ): PiceTypes {
-    console.log("do calc");
-
     let pice = piceWidth;
 
     if (piceWidth > 0) {
