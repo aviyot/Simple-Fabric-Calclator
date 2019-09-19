@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "deploy": "ng b --prod --base-href https://aviyot.github.io/Simple-Fabric-Calclator/ && ngh --dir=dist/SimpleFabricCalclator",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

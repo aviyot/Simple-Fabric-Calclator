@@ -55,7 +55,7 @@
     <mat-tab-group>
       <mat-tab>
         <ng-template mat-tab-label>
-          <button [disabled]="f.invalid" mat-raised-button type="submit" color="accent">Pices </button>
+          <button [disabled]="f.invalid" mat-raised-button type="submit">Pices </button>
         </ng-template>
 
         <app-width-view *ngIf="isDoCal" [data]="picesData"></app-width-view>
@@ -63,7 +63,7 @@
       </mat-tab>
       <mat-tab>
         <ng-template mat-tab-label>
-          <button [disabled]="f.invalid" mat-raised-button type="submit" color="accent">Length</button>
+          <button [disabled]="f.invalid" mat-raised-button type="submit">Length</button>
         </ng-template>
         <app-length-view *ngIf="isDoCal" [data]="picesData"></app-length-view>
 

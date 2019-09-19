@@ -24,8 +24,6 @@ export class AppComponent implements OnInit {
       isCal: false
     });
 
-    console.log(this.resultsCal);
-
     this.totalLength = 0;
     this.totalPice = 0;
   }

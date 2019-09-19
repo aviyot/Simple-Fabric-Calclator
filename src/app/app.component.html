@@ -1,13 +1,11 @@
 <div class="main-app mat-elevation-z8">
   <div style="display: flex;justify-content: space-between">
-    <mat-card-title color="primary">Awings Calclator</mat-card-title>
-
+    <mat-card-title>Awings Calclator</mat-card-title>
     <mat-card-actions>
-      <button matBotton color="accent" type="button" (click)="addTab()">
+      <button type="button" (click)="addTab()">
         <mat-icon>add</mat-icon>
       </button>
-      <button [disabled]="resultsCal.length === 0" matBotton color="accent" type="button"
-        (click)="deleteTab(selectedTab)">
+      <button [disabled]="resultsCal.length === 0" type="button" (click)="deleteTab(selectedTab)">
         <mat-icon>clear</mat-icon>
       </button>
     </mat-card-actions>
