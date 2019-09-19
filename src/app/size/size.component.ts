@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter, Input } from "@angular/core";
 import { PiceTypes, ResultCal } from "../pices.model";
 
 @Component({
@@ -25,18 +25,22 @@ export class SizeComponent implements OnInit {
   isDoCal = false;
 
   picesData: PiceTypes;
-
-  resultsCal: ResultCal;
+  resultCal: ResultCal;
 
   @Output() onCalc = new EventEmitter<ResultCal>();
+  @Input() id: number;
+  //@Input() resultsCal : ResultCal[];
 
   ngOnInit() {
     this.fristData();
-    //this.resultsCal = null;
-    // this.calcWidth();
+    this.calcWidth();
   }
 
   calcWidth() {
+    /*  let index = this.resultsCal.findIndex(item => {
+      return item.id === this.resultCal.id;
+    }); */
+
     this.picesData = this.calcPices(
       this.bodyWidth,
       this.bodyLength,
@@ -48,14 +52,26 @@ export class SizeComponent implements OnInit {
     );
 
     if (!this.isDoCal) {
-      this.resultsCal = {
-        size: `${this.bodyWidth}X ${this.bodyLength}`,
+      console.log("frist");
+
+      this.resultCal = {
+        id: this.id,
+        size: `${this.picesData.bodyWidth} X ${this.bodyLength}`,
         length: this.picesData.totalLength + this.picesData.totalBodyLength,
         pice: this.picesData.pice
       };
-
-      this.onCalc.emit(this.resultsCal);
+    } else {
+      console.log("change");
+      this.resultCal = {
+        id: this.resultCal.id,
+        size: `${this.picesData.bodyWidth} X ${this.picesData.bodyLength}`,
+        length: this.picesData.totalLength + this.picesData.totalBodyLength,
+        pice: this.picesData.pice
+      };
     }
+
+    this.onCalc.emit(this.resultCal);
+
     this.isDoCal = true;
   }
 
@@ -68,6 +84,8 @@ export class SizeComponent implements OnInit {
     lengthHem: number,
     sideHem: number
   ): PiceTypes {
+    console.log("do calc");
+
     let pice = piceWidth;
 
     if (piceWidth > 0) {
@@ -100,7 +118,8 @@ export class SizeComponent implements OnInit {
       equlPice: (needPice + bodyWidth) / (rohabimShlemim + 1),
       totalLength: rohabimShlemim * (bodyLength + lengthHem),
       bodyLength: bodyLength,
-      totalBodyLength: bodyLength + lengthHem
+      totalBodyLength: bodyLength + lengthHem,
+      bodyWidth: bodyWidth
     };
   }
 

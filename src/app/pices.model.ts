@@ -9,9 +9,11 @@ export interface PiceTypes {
   totalLength: number;
   bodyLength: number;
   totalBodyLength: number;
+  bodyWidth: number;
 }
 
 export interface ResultCal {
+  id: number;
   size: string;
   pice: number;
   length: number;
