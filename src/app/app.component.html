@@ -1,5 +1,5 @@
 <div class="main-app mat-elevation-z8">
-  <div style="display: flex;justify-content: space-between">
+  <div class="title">
     <mat-card-title>Awings Calclator</mat-card-title>
     <mat-card-actions>
       <button type="button" (click)="addTab()">
@@ -14,7 +14,8 @@
     (selectedIndexChange)="onSelected($event)">
     <mat-tab *ngFor="let resultCal of resultsCal; let index = index">
       <ng-template mat-tab-label>
-        <span><span>({{index+1}}):</span>{{size.bodyWidth}} X {{size.bodyLength}}</span>
+        <span [ngClass]="{'blod':resultCal.isCal}"><span>[{{index+1}}]:</span>{{size.bodyWidth}} X
+          {{size.bodyLength}}</span>
       </ng-template>
 
       <app-size [id]="selectedTab" #size (onCalc)="onCalcHendler($event)"></app-size>

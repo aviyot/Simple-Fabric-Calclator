@@ -9,3 +9,26 @@ mat-tab {
 app-size {
   width: 200px;
 }
+
+.blod {
+  color: yellow;
+  font-size: 1.2em;
+}
+
+mat-card-title> {
+  background-color: brown;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  background-color: brown;
+  color: white;
+  padding: 3px;
+  margin-bottom: 5px;
+  margin-top: 2px
+}
+
+mat-tab-group {
+  border: 5px darkgray solid
+}
