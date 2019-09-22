@@ -1,50 +1,50 @@
-<mat-grid-list *ngIf="data.piceWidth" cols="4" rowHeight="24px" class="mat-elevation-z8">
+<mat-grid-list *ngIf="data.piceWidth" cols="6" rowHeight="24px" class="mat-elevation-z8">
   <mat-grid-tile>#</mat-grid-tile>
   <mat-grid-tile>Left</mat-grid-tile>
-  <mat-grid-tile>Middle</mat-grid-tile>
+  <mat-grid-tile [colspan]="2">Middle</mat-grid-tile>
   <mat-grid-tile>Right</mat-grid-tile>
   <mat-grid-tile>Pice</mat-grid-tile>
 
 
   <mat-grid-tile>#1</mat-grid-tile>
   <mat-grid-tile style="background-color: yellow">{{data.pice}}</mat-grid-tile>
-  <mat-grid-tile>{{data.rohabimShlemim}} X {{data.rollWidth}}</mat-grid-tile>
+  <mat-grid-tile [colspan]="2">{{data.rohabimShlemim}} X {{data.rollWidth}}</mat-grid-tile>
   <mat-grid-tile>{{data.piceWidth}}</mat-grid-tile>
   <mat-grid-tile>{{data.rollWidth - data.pice }}</mat-grid-tile>
 
 
 </mat-grid-list>
 
-<mat-grid-list *ngIf="data.piceWidth == 0" cols="5" rowHeight="24px" class="mat-elevation-z8">
+<mat-grid-list *ngIf="data.piceWidth == 0" cols="6" rowHeight="24px" class="mat-elevation-z8">
   <mat-grid-tile>#</mat-grid-tile>
   <mat-grid-tile>Left</mat-grid-tile>
-  <mat-grid-tile>Middle</mat-grid-tile>
+  <mat-grid-tile [colspan]="2">Middle</mat-grid-tile>
   <mat-grid-tile>Right</mat-grid-tile>
   <mat-grid-tile style="background-color: red;color:white">Pice</mat-grid-tile>
 
   <mat-grid-tile>1</mat-grid-tile>
   <mat-grid-tile style="background-color: yellow">{{data.pice | number:'0.0-0' }}</mat-grid-tile>
-  <mat-grid-tile>{{data.rohabimShlemim}} X {{data.rollWidth}}</mat-grid-tile>
+  <mat-grid-tile [colspan]="2">{{data.rohabimShlemim}} X {{data.rollWidth}}</mat-grid-tile>
   <mat-grid-tile>{{data.piceWidth | number:'0.0-0' }}</mat-grid-tile>
   <mat-grid-tile>{{data.rollWidth - data.pice }}</mat-grid-tile>
 
 
   <mat-grid-tile>2</mat-grid-tile>
   <mat-grid-tile>{{ data.litlePice | number:'0.0-0' }}</mat-grid-tile>
-  <mat-grid-tile>{{data.rohabimShlemim }} X {{data.rollWidth}}</mat-grid-tile>
+  <mat-grid-tile [colspan]="2">{{data.rohabimShlemim }} X {{data.rollWidth}}</mat-grid-tile>
   <mat-grid-tile>{{ data.litlePice | number:'0.0-0' }}</mat-grid-tile>
   <mat-grid-tile>{{data.rollWidth - data.litlePice }}</mat-grid-tile>
 
 
   <mat-grid-tile>3</mat-grid-tile>
   <mat-grid-tile>{{data.bigPice | number:'0.0-0' }}</mat-grid-tile>
-  <mat-grid-tile>{{data.rohabimShlemim - 1}} X {{data.rollWidth}}</mat-grid-tile>
+  <mat-grid-tile [colspan]="2">{{data.rohabimShlemim - 1}} X {{data.rollWidth}}</mat-grid-tile>
   <mat-grid-tile>{{data.bigPice | number:'0.0-0' }}</mat-grid-tile>
   <mat-grid-tile>{{data.rollWidth - data.bigPice | number:'0.0-0' }}</mat-grid-tile>
 
   <mat-grid-tile>4</mat-grid-tile>
   <mat-grid-tile>--</mat-grid-tile>
-  <mat-grid-tile> {{data.rohabimShlemim+1}} X {{data.equlPice | number:'0.0-0' }}</mat-grid-tile>
+  <mat-grid-tile [colspan]="2"> {{data.rohabimShlemim+1}} X {{data.equlPice | number:'0.0-0' }}</mat-grid-tile>
   <mat-grid-tile>--</mat-grid-tile>
   <mat-grid-tile>{{data.rollWidth - data.equlPice | number:'0.0-0' }}</mat-grid-tile>
 

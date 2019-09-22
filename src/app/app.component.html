@@ -23,8 +23,37 @@
     </mat-tab>
   </mat-tab-group>
 
-
   <div *ngIf="resultsCal.length">
+    <mat-grid-list [cols]="2" rowHeight="24px" style="background-color: yellow;
+    margin: 5px;padding: 5px">
+      <mat-grid-tile>
+        Total Pice : {{totalPice}}
+      </mat-grid-tile>
+      <mat-grid-tile>
+        Total length : {{totalLength}}
+      </mat-grid-tile>
+
+    </mat-grid-list>
+    <mat-grid-list rowHeight="24px" [cols]="5" class="sum-title">
+      <mat-grid-tile>#</mat-grid-tile>
+      <mat-grid-tile [colspan]="2">SIZE </mat-grid-tile>
+      <mat-grid-tile>PICE</mat-grid-tile>
+      <mat-grid-tile>Length</mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list rowHeight="24px" [cols]="5" *ngFor="let resultCal of resultsCal;let index = index">
+      <mat-grid-tile>{{index+1}}</mat-grid-tile>
+      <mat-grid-tile [colspan]="2">
+        {{resultCal.size}}
+      </mat-grid-tile>
+      <mat-grid-tile>
+        {{resultCal.pice}}
+      </mat-grid-tile>
+      <mat-grid-tile>
+        {{resultCal.length}}
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  <!--   <div *ngIf="resultsCal.length">
     <ul>
       <li>
         Total Pice : {{totalPice}}
@@ -43,6 +72,6 @@
         </li>
       </div>
     </ol>
-  </div>
+  </div> -->
 
 </div>
